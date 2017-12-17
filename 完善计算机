@@ -1,0 +1,57 @@
+#!/usr/bin/env python3
+import sys
+def main():
+        for arg in sys.argv[1:]:
+                try:
+                        num1,num2 = arg.split(':')    #num1为员工号，num2为工资，num3为全月应纳税额
+                        num2 = int(num2)
+                        num3 = num2 - 3500 - (num2 * 0.165)
+
+                except ValueError:
+                        print('Parameter Error')
+                        exit()
+                if num3<=0:
+                        num3 = num2 - (num2 * 0.165)
+                        num3 = format(num3,'.2f')
+                        num3 = str(num3)
+                        print(num1+':'+num3)
+                elif 0< num3 <= 1500:
+                        num3 = num2 - (num2 * 0.165) - num3*0.03
+                        num3 = format(num3,'.2f')
+                        num3 = str(num3)
+                        print(num1+':'+num3)
+                elif 1500 < num3 <= 4500:
+                        num3 = num2 - (num2 * 0.165) - (num3*0.10 - 105)
+                        num3 = format(num3,'.2f')
+                        num3 = str(num3)
+                        print(num1+':'+num3)
+                elif 4500 < num3 <= 9000:
+                        num3 = num2 - (num2 * 0.165) - (num3*0.20 - 555)
+                        num3 = format(num3,'.2f')
+                        num3 = str(num3)
+                        print(num1+':'+num3)
+                elif 9000 < num3 <= 35000:
+                        num3 = num2 - (num2 * 0.165) - (num3*0.25 - 1005)
+                        num3 = format(num3,'.2f')
+                        num3 = str(num3)
+                        print(num1+':'+num3)
+                elif 35000 < num3 <= 55000:
+                        num3 = num2 - (num2 * 0.165) - (num3*0.30 - 2755)
+                        num3 = format(num3,'.2f')		
+                        num3 = str(num3)
+                        print(num1+':'+num3)
+                elif 55000 < num3 <= 80000:
+                        num3 = num2 - (num2 * 0.165) - (num3*0.35 - 5505)
+                        num3 = format(num3,'.2f')		
+                        num3 = str(num3)
+                        print(num1+':'+num3)
+                else:
+                        num3 = num2 - (num2 * 0.165) - (num3*0.45 - 13505)
+                        num3 = format(num3,'.2f')		
+                        num3 = str(num3)
+                        print(num1+':'+num3)
+
+
+if __name__ =='__main__':
+       main()
+
